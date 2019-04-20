@@ -2013,9 +2013,6 @@ function createClient(_ref) {
     uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
     request: function request(operation) {
       operation.setContext({
-        fetchOptions: {
-          credentials: 'include'
-        },
         headers: headers
       });
     },
