@@ -1,0 +1,7 @@
+#endpoint: ${env:Prisma_ENDPOINT}
+#endpoint: https://craft-monkey-85f19f995d.herokuapp.com/craft-monkey-prod/prod
+endpoint: https://craft-monkey-85f19f995d.herokuapp.com/craft-monkey-prod/prod
+datamodel: datamodel.graphql
+secret: ${env:PRISMA_SECRET}
+hooks:
+  post-deploy: -graphql get-schema -p prisma
