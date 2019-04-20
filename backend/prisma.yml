@@ -1,6 +1,6 @@
 #endpoint: ${env:Prisma_ENDPOINT}
 #endpoint: https://craft-monkey-85f19f995d.herokuapp.com/craft-monkey-prod/prod
-endpoint: https://craft-monkey-85f19f995d.herokuapp.com/craft-monkey-prod/prod
+endpoint: https://craft-monkey-85f19f995d.herokuapp.com/craft-monkey-prod/prod?headers={"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTU4MjI5NzcsIm5iZiI6MTU1NTczNjU3N30.ZiyjMIlmdL1pBrVrcG3FliUJyQAonEXZlw3m11dxWJ4"}
 datamodel: datamodel.graphql
 secret: ${env:PRISMA_SECRET}
 hooks:
