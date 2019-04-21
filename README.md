@@ -138,7 +138,7 @@ They are responsible for retrieving data.
 
 # graphql-yoga
 
-(https://github.com/prismagraphql/graphql-yoga')
+(https://github.com/prismagraphql/graphql-yoga)
 
 # Scalar Types
 
