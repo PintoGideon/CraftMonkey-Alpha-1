@@ -87,7 +87,7 @@ It removes the mapping between components and styles. This means that when you'r
 
   GraphQL APIs are organized in terms of types and fields
 
-```javascript
+``` javascript
   Type Query{
       user:User
   }
