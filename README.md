@@ -1,5 +1,47 @@
+
+
+
 # CraftMonkey-Alpha-1
 CraftMonkey is an online apparel store using React and GraphQl and is in it's alpha version.
+Based on Courses by Wes Bos: https://advancedreact.com/ and Andrew Mead: https://www.udemy.com/graphql-bootcamp/
+
+
+Project Snapshots:
+
+# Home Page
+![HomePage1](https://user-images.githubusercontent.com/15992276/56465222-860ab080-63c7-11e9-8112-7254950aa094.JPG)
+![HomePage2](https://user-images.githubusercontent.com/15992276/56465223-860ab080-63c7-11e9-9f2a-786f74ca65b6.JPG)
+
+# Customize your Orders
+ ![Customize](https://user-images.githubusercontent.com/15992276/56465221-860ab080-63c7-11e9-8f6f-32d9ea560559.JPG)
+
+
+# Add to Cart
+
+![AddToCart](https://user-images.githubusercontent.com/15992276/56465220-85721a00-63c7-11e9-9006-7ad7a9fb0058.JPG)
+
+# Payment Setup with Stripe
+
+![PaymentGateway](https://user-images.githubusercontent.com/15992276/56465225-860ab080-63c7-11e9-832d-905f8a288375.JPG)
+
+# Your Orders History Page
+![Orders](https://user-images.githubusercontent.com/15992276/56465224-860ab080-63c7-11e9-90c8-dea5d3ccb1f4.JPG)
+
+# Search For Products 
+![Search](https://user-images.githubusercontent.com/15992276/56465226-860ab080-63c7-11e9-8dd5-612eddccb523.png)
+
+# User Authentication
+
+![Signup](https://user-images.githubusercontent.com/15992276/56465227-860ab080-63c7-11e9-8d22-a8a893de9fa1.JPG)
+
+
+
+
+
+
+
+
+
 
 # Documentation for Craft Monkey
 
