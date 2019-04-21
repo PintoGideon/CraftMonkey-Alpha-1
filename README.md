@@ -9,10 +9,12 @@ Based on Courses by Wes Bos: https://advancedreact.com/ and Andrew Mead: https:/
 Project Snapshots:
 
 # Home Page
-![HomePage1](https://user-images.githubusercontent.com/15992276/56465222-860ab080-63c7-11e9-8112-7254950aa094.JPG)
+![HomePage1](https://user-images.githubusercontent.com/15992276/56465293-e3ebc800-63c8-11e9-8ae5-71028ab402b0.JPG)
+![HomePage2](https://user-images.githubusercontent.com/15992276/56465294-e3ebc800-63c8-11e9-8e7b-df308737fbc2.JPG)
 
 
 # Customize your Orders
+ ![Customize](https://user-images.githubusercontent.com/15992276/56465292-e3ebc800-63c8-11e9-8c20-36ec8b0795a4.JPG)
  
  
 # Add to Cart
