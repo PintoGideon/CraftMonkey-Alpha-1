@@ -87,7 +87,7 @@ It removes the mapping between components and styles. This means that when you'r
 
   GraphQL APIs are organized in terms of types and fields
 
-```
+```javascript
   Type Query{
       user:User
   }
@@ -102,7 +102,7 @@ It removes the mapping between components and styles. This means that when you'r
 
 # A simple example
 
-```
+```javascript
   type Cat{
       name:String
   }
@@ -161,7 +161,7 @@ Object Types are custom shapes with fields
 Query type descibes the different queries your API is capable of
 A query operation is just a name with possible arguments that evenutually return a type
 
-```
+```javascript
 type Query{
     myCat:Cat
     cats:[Cat]
@@ -172,7 +172,7 @@ type Query{
 
 Mutation is the the same thing with the intent of mutation the DB
 
-```
+```javascript
 type Mutation{
     newCat(input:Input):NewCat!
 }
@@ -197,7 +197,7 @@ They are responsible for retrieving data.
 
 # Operations in graphQL
 
-```
+```javascript
 typeDefs=`
 type Query{
 greeting(name:String!):String!
@@ -226,7 +226,7 @@ Subscriptions allows the clients to subscribe to data changes in the server.
 
 graphql-subscription library provides us with the pubsub utility to allow communication.
 
-```
+```javascript
 export const pubsub=new PubSub();
 
 ```
@@ -277,7 +277,7 @@ graphql get-schema
 
 Prisma.exists allows us to check if the data exists in the database before querying. It is pretty powerful as it allows assertions.
 
-    ```
+    ```javascript
     prisma.exists.Comment({
         id:"......",
         author:{
@@ -301,7 +301,7 @@ is set to CASCADE.
 
 When I delete a Post, I don't want the Author of the post to be deleted from the User's table and hence I used SET_NULL.
 
-```
+```javascript
 
 type User {
 	id: ID! @unique
@@ -322,7 +322,7 @@ type Post {
 ```
 
 
-```
+```javascript
 
 query{
     items{
@@ -341,7 +341,7 @@ In the above example, we see that we can get many resources in a single request.
 
 Prisma offers many features enabling you to quickly build high-performance GraphQL servers. Next to its powerful query engine and API, Prisma especially shines when it comes to developer experience.
 
-```
+```javascript
 npm i -g prisma
 
 prisma login
