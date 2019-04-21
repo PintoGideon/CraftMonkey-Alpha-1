@@ -38,9 +38,7 @@ It removes the mapping between components and styles. This means that when you'r
 1. GraphQL has only one URL. It does not need a resource+verb combo..
 2. In REST, the shape and size combo is determined by the server. In GraphQL, it is determined by the request
 
-# Apollo Server
-
-# GraphQL APIs are organized in terms of types and fields
+  GraphQL APIs are organized in terms of types and fields
 
 ```
   Type Query{
