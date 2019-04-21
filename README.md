@@ -22,13 +22,260 @@ styled-components utilises tagged template literals to style your components.
 
 It removes the mapping between components and styles. This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it.
 
-# GraphQL
+ Why use GraphQL?
 
-GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+1. Open Source and Created by Facebook
+2. Gives clients the power to describe what
+   data they want
+3. Strongly typed
+4. Enables excellent developer tooling and experiences
+5. Can sit in front of any existing API because it's just
+   a query languages
+6. Ecosystem is fantastic
 
-Core theme
+# GraphQL vs REST
 
-1. Single endpoint to hit unlike REST endpoints.
+1. GraphQL has only one URL. It does not need a resource+verb combo..
+2. In REST, the shape and size combo is determined by the server. In GraphQL, it is determined by the request
+
+# Apollo Server
+
+# GraphQL APIs are organized in terms of types and fields
+
+```
+  Type Query{
+      user:User
+  }
+
+  Type User{
+      name:String
+      age:Int
+      friends:[User]
+  }
+
+```
+
+# A simple example
+
+```
+  type Cat{
+      name:String
+  }
+
+
+  type Query{
+      myCat:Cat
+  }
+
+  schema{
+      query:Query
+  }
+
+resolvers:{
+    Query:{
+        myCat(){
+            return {name:'Garfield'}
+        }
+    }
+}
+
+# In the GraphQL Playground,
+  {
+      myCat{
+          name
+      }
+  }
+
+Output:
+"data":{
+    "myCat":{
+        "name":"Garfield"
+    }
+}
+
+```
+
+A schema defines the stucture for the client app and resolvers
+name match the schema that actually do the work of querying the database.
+
+A DB Schema is for keeping data consistent when entering our data
+GraphQL schema is for defining what resources are available for querying, how they
+relate and how you can query them.
+
+GraphQL Schema sits in front of the DB Query. It validates incoming request queryies.
+
+# Schema Definition Language
+
+Scalar Types are built in primitive
+String, Int, Float, Boolean, ID
+
+Object Types are custom shapes with fields
+
+# Query and Mutation Types
+
+Query type descibes the different queries your API is capable of
+A query operation is just a name with possible arguments that evenutually return a type
+
+```
+type Query{
+    myCat:Cat
+    cats:[Cat]
+    hello:String
+}
+
+```
+
+Mutation is the the same thing with the intent of mutation the DB
+
+```
+type Mutation{
+    newCat(input:Input):NewCat!
+}
+```
+
+# Resolvers
+
+Like controllers, but instead types all the way down
+They are responsible for retrieving data.
+
+# graphql-yoga
+
+(https://github.com/prismagraphql/graphql-yoga')
+
+# Scalar Types
+
+1. String
+2. Boolean
+3. int
+4. Float
+5. ID (Used to represent unique idenntifiers)
+
+# Operations in graphQL
+
+```
+typeDefs=`
+type Query{
+greeting(name:String!):String!
+}
+  `
+const resolovers={
+    Query: {
+        greeting (args){
+            if (args.name){
+                return `Hello, ${args.name}!`
+            }
+        }
+    }
+}
+
+
+```
+
+# Input type
+
+Passing object as properties as input values. We define an input type and reference it in the argument list.
+
+# Subscriptions
+
+Subscriptions allows the clients to subscribe to data changes in the server.
+
+graphql-subscription library provides us with the pubsub utility to allow communication.
+
+```
+export const pubsub=new PubSub();
+
+```
+
+1.  Set up a subscription
+2.  Publish data to it
+
+pubsub.asyncIterator() sets up a channel and pubsub.publish allows the subscribers to listen for updates.
+
+# Prisma
+
+ORM stands for Object Relational Mapping like Mongoose which connects Nodejs to MongoDB. We can model our data and setup validations and migrate our data over time with ORM's.
+
+Prisma is a GraphQL ORM which allows use to work on any database.
+
+The server serves like a thin layer between the client and the database.
+
+npm i prisma
+prisma init
+
+Prisma generates three files
+
+1. datamodel-prisma
+2. docker-compose.yml
+3. prisma.yml
+
+# Integrating Node with GraphQL
+
+GraphQL can very well interact with Postgres but we want to use Node as a thin layer between GraphQL and Postgres and flesh out the code for the
+communication.
+
+# Prisma Bindings
+
+It gives us bindings for Nodejs. It gives us a set of Nodejs methods which we can use to interact with Prisma and GraphQL.
+
+# GraphQL-CLI
+
+Gives us a set of commands for performing common tasks. Here, I need to fetch a schema for an API.
+
+```
+graphql get-schema
+
+# "get-schema": "graphql get-schema -p prisma --dotenv config/dev.env"
+
+```
+
+# prisma.exists
+
+Prisma.exists allows us to check if the data exists in the database before querying. It is pretty powerful as it allows assertions.
+
+    ```
+    prisma.exists.Comment({
+        id:"......",
+        author:{
+            id:"....."
+        }
+    }).then(exists=>{
+        console.log(exists);
+    })
+
+    ```
+
+# @relation Directive
+
+This is used when Types are linked to other types. We can customize what happens to a given record when the other record gets removed.
+
+default behavior : SET_NULL
+override default behavior: CASCADE
+
+In the example below, I want to remove the posts and comments when the user is deleted hene the relation directive
+is set to CASCADE.
+
+When I delete a Post, I don't want the Author of the post to be deleted from the User's table and hence I used SET_NULL.
+
+```
+
+type User {
+	id: ID! @unique
+	name: String!
+	email: String! @unique
+	posts: [Post!]! @relation(name: "PostToUser", onDelete: CASCADE)
+	comments: [Comment!]! @relation(name: "CommentToUser", onDelete: CASCADE)
+}
+
+type Post {
+	id: ID! @unique
+	title: String!
+	body: String!
+	published: Boolean!
+	author: User! @relation(name: "PostToUser", onDelete: SET_NULL)
+	comments: [Comment!]! @relation(name: "CommentToPost", onDelete: CASCADE)
+}
+```
+
 
 ```
 
