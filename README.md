@@ -41,13 +41,6 @@ Project Snapshots:
 
 
 
-
-
-
-
-
-
-
 # Documentation for Craft Monkey
 
 # Next.js
@@ -178,10 +171,6 @@ type Mutation{
 }
 ```
 
-# Resolvers
-
-Like controllers, but instead types all the way down
-They are responsible for retrieving data.
 
 # graphql-yoga
 
@@ -319,10 +308,7 @@ type Post {
 	author: User! @relation(name: "PostToUser", onDelete: SET_NULL)
 	comments: [Comment!]! @relation(name: "CommentToPost", onDelete: CASCADE)
 }
-```
 
-
-```javascript
 
 query{
     items{
