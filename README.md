@@ -162,8 +162,19 @@ type Query{
 }
 
 ```
+If you have an API endpoint that alters data, like inserting data into a database or altering data already in a database, you should make this endpoint a Mutation rather than a Query. This is as simple as making the API endpoint part of the top-level Mutation type instead of the top-level Query type.
 
-Mutation is the the same thing with the intent of mutation the DB
+Let's say we have a “message of the day” server, where anyone can update the message of the day, and anyone can read the current one. The GraphQL schema for this is simply:
+
+```javascript
+type Mutation {
+  setMessage(message: String): String
+}
+
+type Query {
+  getMessage: String
+}
+```
 
 ```javascript
 type Mutation{
