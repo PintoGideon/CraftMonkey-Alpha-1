@@ -285,7 +285,7 @@ This is used when Types are linked to other types. We can customize what happens
 default behavior : SET_NULL
 override default behavior: CASCADE
 
-In the example below, I want to remove the posts and comments when the user is deleted hene the relation directive
+In the example below, I want to remove the posts and comments when the user is deleted hence the relation directive
 is set to CASCADE.
 
 When I delete a Post, I don't want the Author of the post to be deleted from the User's table and hence I used SET_NULL.
